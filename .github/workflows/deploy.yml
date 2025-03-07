@@ -7,7 +7,6 @@ on:
     types:
       - completed
   
-
 jobs:
   deploy:
 
@@ -27,9 +26,8 @@ jobs:
         role-skip-session-tagging: true
 
     - name: Deploy AWS CodeDeploy
-      run: |
-        aws deploy create-deployment \
-          --application-name STUDENTIFY \
+      run: 
+        aws deploy create-deployment --application-name STUDENTIFY \
           --deployment-config-name CodeDeployDefault.OneAtATime \
           --deployment-group-name STUDENTIFY \
           --github-location "repository=${{ github.repository }},commitId=${{ github.sha }}" \
