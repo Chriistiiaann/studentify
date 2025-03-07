@@ -28,7 +28,7 @@ jobs:
 
     - name: Deploy Application
       run:
-        aws deploy create-deployment --application-name STUDENTIFY_CHRISTIAN \
+        aws deploy create-deployment --application-name STUDENTIFY \
           --deployment-group-name STUDENTIFY \
           --github-location repository=${{ github.repository }},commitId=${{ github.sha }} \
           --region us-east-1 \
