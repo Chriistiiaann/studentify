@@ -26,6 +26,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
         role-skip-session-tagging: true
 
+
     - name: Deploy AWS CodeDeploy
       run: |
         aws deploy create-deployment \
