@@ -26,10 +26,12 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
         role-skip-session-tagging: true
 
-    - name: Deploy Application
-      run:
-        aws deploy create-deployment --application-name STUDENTIFY \
+    - name: Deploy AWS CodeDeploy
+      run: |
+        aws deploy create-deployment \
+          --application-name STUDENTIFY \
+          --deployment-config-name CodeDeployDefault.OneAtATime \
           --deployment-group-name STUDENTIFY \
-          --github-location repository=${{ github.repository }},commitId=${{ github.sha }} \
+          --github-location "repository=${{ github.repository }},commitId=${{ github.sha }}" \
           --region us-east-1 \
-          --file-exists-behavior OVERWRITE
+          --description "DEPLOY STUDENTIFY CHRISTIAN"
